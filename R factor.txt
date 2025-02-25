@@ -1,0 +1,109 @@
+R FACTOR
+Factores
+Los factores se utilizan para categorizar datos. Algunos ejemplos de factores son:
+
+Demografía: masculino/femenino
+Música: Rock, Pop, Clásica, Jazz
+Entrenamiento: Fuerza, Resistencia
+Para crear un factor, utilice la factor()función y agregue un vector como argumento:
+
+Ejemplo
+# Create a factor
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+
+# Print the factor
+music_genre
+[1] Jazz    Rock    Classic Classic Pop     Jazz    Rock    Jazz   
+Levels: Classic Jazz Pop Rock
+
+En el ejemplo anterior se puede ver que el factor tiene cuatro niveles (categorías): Clásico, Jazz, Pop y Rock.
+
+Para imprimir solo los niveles, utilice la levels()función:
+
+Ejemplo
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+
+levels(music_genre)
+Resultado:
+
+[1] "Clásico" "Jazz" "Pop" "Rock"   
+
+También puedes establecer los niveles agregando el levelsargumento dentro de la factor()función:
+
+Ejemplo
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"), levels = c("Classic", "Jazz", "Pop", "Rock", "Other"))
+
+levels(music_genre)
+Resultado:
+
+[1] "Clásico" "Jazz" "Pop" "Rock" "Otros"
+
+
+Longitud del factor
+Utilice la length()función para averiguar cuántos elementos hay en el factor:
+
+Ejemplo
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+
+length(music_genre)
+Resultado:
+
+[1] 8
+
+Factores de acceso
+Para acceder a los elementos de un factor, consulte el número de índice, utilizando []corchetes:
+
+Ejemplo
+Acceda al tercer elemento:
+
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+
+music_genre[3]
+Resultado:
+
+[1] Clásico
+Niveles: Jazz clásico Pop Rock
+
+Cambiar el valor del artículo
+Para cambiar el valor de un elemento específico, consulte el número de índice:
+
+Ejemplo
+Cambiar el valor del tercer elemento:
+
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+
+music_genre[3] <- "Pop"
+
+music_genre[3]
+[1] Pop
+Levels: Classic Jazz Pop Rock
+
+Tenga en cuenta que no puede cambiar el valor de un elemento específico si no está especificado en el factor. El siguiente ejemplo generará un error:
+
+Ejemplo
+Intentando cambiar el valor del tercer elemento ("Clásico") a un elemento que no existe/no está predefinido ("Opera"):
+
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"))
+
+music_genre[3] <- "Opera"
+
+music_genre[3]
+Resultado:
+
+Mensaje de advertencia:
+En `[<-.factor`(`*tmp*`, 3, valor = "Opera") :
+  nivel de factor no válido, NA generado
+Sin embargo, si ya lo ha especificado dentro del levelsargumento, funcionará:
+
+Ejemplo
+Cambiar el valor del tercer elemento:
+
+music_genre <- factor(c("Jazz", "Rock", "Classic", "Classic", "Pop", "Jazz", "Rock", "Jazz"), levels = c("Classic", "Jazz", "Pop", "Rock", "Opera"))
+
+music_genre[3] <- "Opera"
+
+music_genre[3]
+Resultado:
+
+[1] Ópera
+Niveles: Clásico Jazz Pop Rock Ópera

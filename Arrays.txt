@@ -1,0 +1,91 @@
+Array
+En comparación con las matrices, los conjuntos pueden tener más de dos dimensiones.
+
+Podemos usar la array()función para crear una matriz y el dimparámetro para especificar las dimensiones:
+# An array with one dimension with values ranging from 1 to 24
+thisarray <- c(1:24)
+thisarray
+
+# An array with more than one dimension
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray
+Ejemplo explicado
+En el ejemplo anterior creamos una matriz con los valores del 1 al 24.
+
+¿Cómo dim=c(4,3,2)funciona?
+El primer y el segundo número entre paréntesis especifican la cantidad de filas y columnas.
+El último número entre paréntesis especifica cuántas dimensiones queremos.
+
+Nota: Las matrices solo pueden tener un tipo de datos.
+
+
+
+Acceder a elementos de la matriz
+Puede acceder a los elementos de la matriz 
+haciendo referencia a la posición del índice. Puede utilizar los 
+[]corchetes para acceder a los elementos deseados de una matriz:
+
+Ejemplo
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+La sintaxis es la siguiente: matriz[posición de fila, posición de columna, nivel de matriz]
+
+
+También puede acceder a toda la fila o columna de una matriz en un arreglo, utilizando la c()función:
+
+Ejemplo
+thisarray <- c(1:24)
+
+# Access all the items from the first row from matrix one
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[c(1),,1]
+
+# Access all the items from the first column from matrix one
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+multiarray[,c(1),1]
+
+Una coma (,) antes de c() significa que queremos acceder a la columna.
+
+Una coma (,) después de c() significa que queremos acceder a la fila.
+
+Comprobar si existe un artículo
+Para saber si un elemento específico está presente en una matriz, utilice el %in%operador:
+
+Ejemplo
+Comprueba si el valor "2" está presente en la matriz:
+
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+2 %in% multiarray
+
+Cantidad de filas y columnas
+Utilice la dim()función para encontrar la cantidad de filas y columnas en una matriz:
+
+Ejemplo
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+dim(multiarray)
+
+Longitud de la matriz
+Utilice la length()función para encontrar la dimensión de una matriz:
+
+Ejemplo
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+length(multiarray)
+
+Recorrer un array en bucle
+Puedes recorrer los elementos de la matriz mediante un forbucle:
+
+Ejemplo
+thisarray <- c(1:24)
+multiarray <- array(thisarray, dim = c(4, 3, 2))
+
+for(x in multiarray){
+  print(x)
+}
+
+multiarray[2, 3, 2]

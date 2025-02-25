@@ -1,0 +1,67 @@
+Comprobar una cadena
+Utilice la grepl()función para 
+comprobar si un carácter o una secuencia de 
+caracteres están presentes en una cadena:
+str <- "Hello World!"
+
+grepl("H", str)
+grepl("Hello", str)
+grepl("X", str)
+OUTPOUT
+[1] TRUE
+[1] TRUE
+[1] FALSE
+Combinar dos cadenas
+Utilice la paste()función para fusionar/concatenar dos cadenas:
+
+Ejemplo
+str1 <- "Hello"
+str2 <- "World"
+
+paste(str1, str2)
+
+OUTPOUT
+[1] "Hello World"
+
+Escape Characters
+Un carácter de escape es una barra invertida \seguida 
+del carácter que desea insertar.
+
+Un ejemplo de un carácter ilegal es una comilla 
+doble dentro de una cadena que está rodeada por comillas dobles:
+
+Ejemplo
+str <- "We are the so-called "Vikings", from the north."
+
+str
+Resultado:
+
+Error: unexpected symbol in "str <- "We are the so-called "Vikings"
+
+Para solucionar este problema,
+ utilice el carácter de escape \":
+
+Ejemplo
+El carácter de escape le permite utilizar 
+comillas dobles cuando normalmente no estaría permitido:
+
+str <- "We are the so-called \"Vikings\", from the north."
+
+str
+cat(str)
+
+
+tenga en cuenta que la impresión automática de 
+la variable str imprimirá la barra invertida en 
+la salida. Puede utilizar la cat()función para
+ imprimirla sin barra invertida.
+
+
+Otros caracteres de escape en R:
+
+Code	Result
+\\	Backslash
+\n	New Line
+\r	Carriage Return
+\t	Tab
+\b	Backspace

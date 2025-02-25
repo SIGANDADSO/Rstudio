@@ -1,0 +1,53 @@
+Gráficos de barras
+Un gráfico de barras utiliza barras rectangulares para visualizar datos. Los gráficos de barras se pueden mostrar de forma horizontal o vertical. La altura o longitud de las barras son proporcionales a los valores que representan.
+
+Utilice la barplot()función para dibujar un gráfico de barras verticales:
+Ejemplo
+# x-axis values
+x <- c("A", "B", "C", "D")
+
+# y-axis values
+y <- c(2, 4, 6, 8)
+
+barplot(y, names.arg = x(es el eje x de la gafica))
+Ejemplo explicado
+La xvariable representa valores en el eje x (A,B,C,D)
+La yvariable representa valores en el eje y (2,4,6,8)
+Luego usamos la barplot()función para crear un gráfico de barras de los valores.
+names.argdefine los nombres de cada observación en el eje x
+
+Color de la barra
+Utilice el colparámetro para cambiar el color de las barras:
+
+Ejemplo
+x <- c("A", "B", "C", "D")
+y <- c(2, 4, 6, 8)
+
+barplot(y, names.arg = x, col = "red")
+
+Densidad / Textura de la barra
+Para cambiar la textura de la barra, utilice el density parámetro:
+
+Ejemplo
+x <- c("A", "B", "C", "D")
+y <- c(2, 4, 6, 8)
+
+barplot(y, names.arg = x, density = 10)
+
+Ancho de barra
+Utilice el widthparámetro para cambiar el ancho de las barras:
+
+Ejemplo
+x <- c("A", "B", "C", "D")
+y <- c(2, 4, 6, 8)
+
+barplot(y, names.arg = x, width = c(1,2,3,4))
+
+Barras horizontales
+Si desea que las barras se muestren horizontalmente en lugar de verticalmente, utilice horiz=TRUE:
+
+Ejemplo
+x <- c("A", "B", "C", "D")
+y <- c(2, 4, 6, 8)
+
+barplot(y, names.arg = x, horiz = TRUE)

@@ -1,0 +1,60 @@
+Operator	Name	Example	Try it
++	Addition	x + y	
+-	Subtraction	x - y	
+*	Multiplication	x * y	
+/	Division	x / y	
+^	Exponent	x ^ y	
+%%	Modulus (Remainder from division)	x %% y	5%%2 ES IGUAL A 1 PORQU ES EL RESIDUO
+%/%	Integer Division	x%/%y REDODNEA EL NUMERO A MAS ABAJO, 15%2 ES 7
+
+Operadores de asignación R
+Los operadores de asignación se utilizan para asignar valores a las variables:
+
+Ejemplo
+my_var <- 3
+
+my_var <<- 3
+
+3 -> my_var
+
+3 ->> my_var
+
+my_var # print my_var
+Nota: <<- es un asignador global. Aprenderá más sobre esto en el capítulo Variable global .
+
+También es posible girar la dirección del operador de asignación.
+
+x <- 3 es igual a 3 -> x
+
+
+
+Operadores de comparación R
+Los operadores de comparación se utilizan para comparar dos valores:
+
+Operator	Name	Example	Try it
+==	Equal	x == y	
+!=	Not equal	x != y	
+>	Greater than	x > y	
+<	Less than	x < y	
+>=	Greater than or equal to	x >= y	
+<=	Less than or equal to	x <= y
+
+Operadores lógicos R
+Los operadores lógicos se utilizan para combinar declaraciones condicionales:
+
+Operator	Description
+&	Element-wise Logical AND operator. Returns TRUE if both elements are TRUE
+&&	Logical AND operator - Returns TRUE if both statements are TRUE
+|	Elementwise- Logical OR operator. Returns TRUE if one of the statements is TRUE
+||	Logical OR operator. Returns TRUE if one of the statements is TRUE
+!	Logical NOT - Returns FALSE if statement is TRUE
+
+
+R Operadores varios
+Se utilizan operadores diversos para manipular datos:
+
+Operator	Description	Example
+:	Creates a series of numbers in a sequence	x <- 1:10
+%in%	Find out if an element belongs to a vector	x %in% y
+%*%	Matrix Multiplication	x <- Matrix1 %*% Matrix2
+

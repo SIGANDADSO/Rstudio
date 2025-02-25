@@ -1,0 +1,29 @@
+Funciones matemáticas integradas
+R también tiene muchas funciones matemáticas integradas que le permiten realizar tareas matemáticas con números.
+
+Por ejemplo, las funciones min()y max()se pueden utilizar para encontrar el número más bajo o más alto de un conjunto:
+
+Ejemplo
+max(5, 10, 15)
+
+min(5, 10, 15)
+
+raíz cuadrada()
+La sqrt()función devuelve la raíz cuadrada de un número:
+
+Ejemplo
+sqrt(16)
+
+abs() valor absoluto
+La abs()función devuelve el valor absoluto (positivo) de un número:
+
+Ejemplo
+abs(-4.7)
+
+La ceiling()función redondea un número 
+hacia arriba hasta su entero más cercano
+ceiling(1.4) rta/2
+
+floor() función redondea un número hacia abajo 
+hasta su entero más cercano y devuelve el resultado:
+floor(1.4) rta/1

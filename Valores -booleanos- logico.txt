@@ -1,0 +1,22 @@
+Valores booleanos (valores lógicos)
+En programación, a menudo es necesario saber si una expresión es verdadera o falsa .
+
+Puede evaluar cualquier expresión en R y obtener una de dos respuestas, TRUEo FALSE.
+
+Cuando comparas dos valores, se evalúa la expresión y R devuelve la respuesta lógica:
+10 > 9    # TRUE because 10 is greater than 9
+10 == 9   # FALSE because 10 is not equal to 9
+10 < 9    # FALSE because 10 is greater than 9
+
+También puedes ejecutar una condición en una if
+declaración, sobre lo cual aprenderás mucho más en el capítulo if..else .
+
+Ejemplo
+a <- 200
+b <- 33
+
+if (b > a) {
+  print ("b is greater than a")
+} else {
+  print("b is not greater than a")
+}

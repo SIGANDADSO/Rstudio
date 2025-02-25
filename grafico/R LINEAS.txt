@@ -1,0 +1,48 @@
+R Line
+Gráficos de líneas
+Un gráfico lineal tiene una línea que conecta todos los puntos de un diagrama.
+
+Para crear una línea, utilice la plot()función y agregue el typeparámetro con un valor de "l":
+
+Ejemplo
+plot(1:10, type="l")
+Color de línea
+El color de la línea es negro por defecto. Para cambiar el color, utilice el colparámetro:
+
+Ejemplo
+plot(1:10, type="l", col="blue")
+
+Ancho de línea
+Para cambiar el ancho de la línea, utilice el lwd parámetro ( 1es el predeterminado, mientras que 0.5significa 50% más pequeño y 2significa 100% más grande):
+
+Ejemplo
+plot(1:10, type="l", lwd=2)
+
+
+Estilos de línea
+La línea es continua de forma predeterminada. Utilice el ltyparámetro con un valor de 0 a 6 para especificar el formato de la línea.
+
+Por ejemplo, lty=3se mostrará una línea punteada en lugar de una línea continua:
+
+Ejemplo
+plot(1:10, type="l", lwd=5, lty=3)
+
+Valores de parámetros disponibles para lty:
+
+0elimina la linea
+1muestra una línea sólida
+2muestra una línea discontinua
+3muestra una línea de puntos
+4muestra una línea de "puntos y guiones"
+5muestra una línea "discontinua larga"
+6muestra una línea de "dos puntos"
+
+Líneas múltiples
+Para mostrar más de una línea en un gráfico, utilice la plot()función junto con la lines()función:
+
+Ejemplo
+line1 <- c(1,2,3,4,5,10)
+line2 <- c(2,5,7,8,9,10)
+
+plot(line1, type = "l", col = "blue")
+lines(line2, type="l", col = "red")

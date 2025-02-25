@@ -1,0 +1,59 @@
+Diagramas de dispersión
+Aprendiste en el capítulo Trazado que la plot()función se usa para graficar números entre sí.
+
+Un "diagrama de dispersión" es un tipo de gráfico que se utiliza para mostrar la relación entre dos variables numéricas y traza un punto para cada observación.
+
+Necesita dos vectores de la misma longitud, uno para el eje x (horizontal) y otro para el eje y (vertical):
+
+Ejemplo
+x <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+plot(x, y)
+
+La observación en el ejemplo anterior debería mostrar el resultado de 12 automóviles que pasan.
+
+Puede que esto no quede claro para alguien que vea el gráfico por primera vez, así que agreguemos un encabezado y diferentes etiquetas para describir mejor el diagrama de dispersión:
+
+Ejemplo
+x <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+plot(x, y, main="Observation of Cars", xlab="Car age", ylab="Car speed")
+
+
+ Para recapitular, la observación en el ejemplo anterior es el resultado de 12 autos que pasan.
+
+El eje x muestra la antigüedad del coche.
+
+El eje y muestra la velocidad del automóvil cuando pasa.
+
+¿Existe alguna relación entre las observaciones?
+
+Parece que cuanto más nuevo es el coche, más rápido va, pero eso podría ser una coincidencia, después de todo sólo matriculamos 12 coches.
+
+
+
+Comparar parcelas
+En el ejemplo anterior, parece haber una relación entre la velocidad del automóvil y su antigüedad, pero ¿qué sucede si graficamos también las observaciones de otro día? ¿El diagrama de dispersión nos dirá algo más?
+
+Para comparar la gráfica con otra gráfica, utilice la points()función:
+
+Ejemplo
+Dibuje dos gráficos en la misma figura:
+
+# day one, the age and speed of 12 cars:
+x1 <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y1 <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+# day two, the age and speed of 15 cars:
+x2 <- c(2,2,8,1,15,8,12,9,7,3,11,4,7,14,12)
+y2 <- c(100,105,84,105,90,99,90,95,94,100,79,112,91,80,85)
+
+plot(x1, y1, main="Observation of Cars", xlab="Car age", ylab="Car speed", col="red", cex=2)
+points(x2, y2, col="blue", cex=2)
+
+
+Nota: Para poder ver la diferencia de la comparación, debes asignar diferentes colores a los gráficos (mediante el uso del colparámetro). El rojo representa los valores del día 1, mientras que el azul representa el día 2. Ten en cuenta que también hemos agregado el cexparámetro para aumentar el tamaño de los puntos.
+
+Conclusión de la observación: Comparando los dos gráficos, creo que es seguro decir que ambos nos dan la misma conclusión: cuanto más nuevo es el coche, más rápido va.

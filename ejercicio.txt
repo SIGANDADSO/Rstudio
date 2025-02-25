@@ -1,0 +1,11 @@
+https://rpubs.com/GEORGETTE/918888
+DICCIONARIO DE FUNCIONES EN R
+FUNCIÓN	APLICACIÓN O USO
+readline()	Sirve para poner una línea de texto que se presentará en la consola solicitando algún dato o información al usuario.
+as.numeric()	Lee un texto como numérico.
+cat()	Nos permite imprimir en la consola lineas de texto junto con variables que hayamos ingresado antes.
+ordered	Esta función nos ayuda a colocar en orden datos numéricos usando el signo de menor ( < ).
+sort	Ordena de manera directa números sin usar ningun signo. Dentro de este código es necesario indicar si el orden será creciente 
+o decreciente,
+ para ello colocaremos decreasing = y colocar FALSE para
+ una secuencia creciente o TRUE para una decreciente. Ejemplo: r <- sort(numeros,decreasing = FALSE)

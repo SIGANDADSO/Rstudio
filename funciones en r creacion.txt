@@ -1,0 +1,278 @@
+Funciones R
+Una función es un bloque de código que solo se ejecuta cuando se lo llama.
+Puede pasar datos, conocidos como parámetros, a una función.
+Una función puede devolver datos como resultado.
+
+Creando una función
+Para crear una función, utilice la function()palabra clave:
+
+Ejemplo
+my_function <- function() { # create a function with the name my_function
+  print("Hello World!")
+}
+
+Llamar a una función
+Para llamar a una función, utilice el nombre de la función seguido de paréntesis, como my_function() :
+
+Ejemplo
+my_function <- function() {
+  print("Hello World!")
+}
+
+my_function() # call the function named my_function
+
+
+Argumentos
+La información se puede pasar a funciones como argumentos.
+
+Los argumentos se especifican después del nombre de la función, 
+dentro de los paréntesis. Puedes agregar tantos argumentos como quieras, solo sepáralos con una coma.
+
+El siguiente ejemplo tiene una función con un argumento (fname). 
+Cuando se llama a la función, pasamos un nombre, que se utiliza dentro de la función para imprimir el nombre completo:
+
+Ejemplo
+my_function <- function(fname) {
+  paste(fname, "Griffin")
+}
+
+my_function("Peter")
+my_function("Lois")
+my_function("Stewie")
+
+
+
+¿Parámetros o argumentos?
+Los términos "parámetro" y "argumento" se pueden usar para lo mismo: información que se pasa a una función.
+
+Desde la perspectiva de una función:
+
+Un parámetro es la variable que aparece dentro de los paréntesis en la definición de la función.
+
+Un argumento es el valor que se envía a la función cuando se llama.
+
+
+Número de argumentos
+De forma predeterminada, una función debe llamarse con la cantidad 
+correcta de argumentos. Esto significa que si su función espera 2 argumentos, debe llamarla con 2 argumentos, ni más ni menos:
+
+Ejemplo
+Esta función espera 2 argumentos y obtiene 2 argumentos:
+
+my_function <- function(fname, lname) {
+  paste(fname, lname)
+}
+
+my_function("Peter", "Griffin")
+
+
+Si intenta llamar a la función con 1 o 3 argumentos, obtendrá un error:
+
+Ejemplo
+Esta función espera 2 argumentos y obtiene 1 argumento:
+
+my_function <- function(fname, lname) {
+  paste(fname, lname)
+}
+
+my_function("Peter")
+
+
+Valor del parámetro predeterminado
+El siguiente ejemplo muestra cómo utilizar un valor de parámetro predeterminado.
+
+Si llamamos a la función sin un argumento, utiliza el valor predeterminado:
+
+Ejemplo
+my_function <- function(country = "Norway") {
+  paste("I am from", country)
+}
+
+my_function("Sweden")
+my_function("India")
+my_function() # will get the default value, which is Norway
+my_function("USA")
+
+
+Valores de retorno
+Para que una función devuelva un resultado, utilice la return()función:
+
+Ejemplo
+my_function <- function(x) {
+  return (5 * x)
+}
+
+print(my_function(3))
+print(my_function(5))
+print(my_function(9))
+La salida del código anterior será:
+
+[1] 15
+[1] 25
+[1] 45
+
+
+
+Funciones anidadas
+Hay dos formas de crear una función anidada:
+
+Llamar a una función dentro de otra función.
+Escribe una función dentro de una función.
+
+
+Ejemplo
+Llamar a una función dentro de otra función:
+
+Nested_function <- function(x, y) {
+  a <- x + y
+  return(a)
+}
+
+Nested_function(Nested_function(2,2), Nested_function(3,3))
+
+Ejemplo explicado
+La función le dice a x que sume y.
+
+La primera entrada Nested_function(2,2) es "x" de la función principal.
+
+La segunda entrada Nested_function(3,3) es "y" de la función principal.
+
+Por lo tanto, la salida es (2+2) + (3+3) = 10 .
+
+
+Ejemplo
+Escribe una función dentro de una función:
+
+Outer_func <- function(x) {
+  Inner_func <- function(y) {
+    a <- x + y
+    return(a)
+  }
+  return (Inner_func)
+}
+output <- Outer_func(3) # To call the Outer_func
+output(5)
+Ejemplo explicado
+No puedes llamar directamente a la función porque Inner_func se ha definido (anidado) dentro de Outer_func.
+
+Necesitamos llamar a Outer_func primero para poder llamar a Inner_func como segundo paso.
+
+Necesitamos crear una nueva variable llamada salida y darle un valor, que aquí es 3.
+
+Luego imprimimos la salida con el valor deseado de "y", que en este caso es 5.
+
+El resultado es por tanto 8 (3 + 5).
+
+
+
+Recursión
+R también acepta la recursión de funciones, lo que significa que una función definida puede llamarse a sí misma.
+
+La recursión es un concepto matemático y de programación común. Significa que una función se llama a sí misma. Esto tiene la ventaja de que permite recorrer los datos en bucle para llegar a un resultado.
+
+El desarrollador debe tener mucho cuidado con la recursión, ya que puede resultar muy fácil escribir una función que nunca finalice o que utilice cantidades excesivas de memoria o potencia del procesador. Sin embargo, cuando se escribe correctamente, la recursión puede ser un método de programación muy eficiente y matemáticamente elegante.
+
+En este ejemplo, tri_recursion()se trata de una función que hemos definido para que se llame a sí misma ("recurse"). Utilizamos la kvariable como dato, que decrementa ( -1) cada vez que realizamos la recursión. La recursión finaliza cuando la condición no es mayor que 0 (es decir, cuando es 0).
+
+Para un desarrollador nuevo puede llevar algún tiempo comprender exactamente cómo funciona esto; la mejor forma de descubrirlo es probándolo y modificándolo.
+
+
+
+tri_recursion <- function(k) {
+  if (k > 0) {
+    result <- k + tri_recursion(k - 1)
+    print(result)
+  } else {
+    result = 0
+    return(result)
+  }
+}
+tri_recursion(7)
+
+[1] 1
+[1] 3
+[1] 6
+[1] 10
+[1] 15
+[1] 21
+[1] 28
+
+Variables globales
+Las variables que se crean fuera de una función se conocen como variables globales .
+
+Las variables globales pueden ser utilizadas por todos, tanto dentro como fuera de las funciones.
+
+Ejemplo
+Crea una variable fuera de una función y úsala dentro de la función:
+
+txt <- "awesome"
+my_function <- function() {
+  paste("R is", txt)
+}
+
+my_function()
+
+
+Si creas una variable con el mismo nombre dentro
+ de una función, esta variable será local y solo podrá usarse dentro de la función.
+ La variable global con el mismo nombre permanecerá como estaba, global y con el valor original.
+
+Ejemplo
+Crea una variable dentro de una función con el mismo nombre que la variable global:
+
+txt <- "global variable"
+my_function <- function() {
+  txt = "fantastic"
+  paste("R is", txt)
+}
+
+my_function()
+
+txt # print txt
+
+[1] "R is fantastic"
+[1] "global variable"
+
+Si intenta imprimir txt, devolverá " variable global " porque estamos imprimiendo txtfuera de la función.
+
+
+
+El operador de asignación global
+Normalmente, cuando se crea una variable dentro de una función, esa variable es local y solo se puede utilizar dentro de esa función.
+
+Para crear una variable global dentro de una función, puede utilizar el operador de asignación global<<-
+
+Ejemplo
+Si utiliza el operador de asignación <<-, la variable pertenece al ámbito global:
+
+my_function <- function() {
+txt <<- "fantastic"
+  paste("R is", txt)
+}
+
+my_function()
+
+print(txt)
+
+
+[1] "R is fantastic"
+[1] "fantastic"
+
+Además, utilice el operador de asignación global si desea cambiar una variable global dentro de una función:
+
+Ejemplo
+Para cambiar el valor de una variable global dentro de una función, haga referencia a la variable utilizando el operador de asignación global <<-:
+
+txt <- "awesome"
+my_function <- function() {
+  txt <<- "fantastic"
+  paste("R is", txt)
+}
+
+my_function()
+
+paste("R is", txt)
+
+
+[1] "R is fantastic"
+[1] "R is fantastic"

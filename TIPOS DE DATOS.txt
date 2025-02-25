@@ -1,0 +1,37 @@
+RSTUDIIO
+
+FUNCION paste() s para concatenar
+
+Tipos de datos básicos
+Los tipos de datos básicos en R se pueden dividir en los siguientes tipos:
+
+numeric- (10.5, 55, 787)
+integer(enter)- (1L, 55L, 100L, donde la letra "L" declara esto como un entero)
+complex- (9 + 3i, donde "i" es la parte imaginaria)
+character(también conocida como cadena) - ("k", "R es emocionante", "FALSO", "11.5")
+logical(también conocido como booleano) - (VERDADERO TRUE o FALSO FALSE )
+Podemos utilizar la class()función para comprobar el tipo de datos de una variable:
+
+Conversión de tipos
+Puede convertir de un tipo a otro con las siguientes funciones:
+
+as.numeric()
+as.integer()
+as.complex()
+EJEMPLO;
+x <- 1L # integer
+y <- 2 # numeric
+
+# convert from integer to numeric:
+a <- as.numeric(x)
+
+# convert from numeric to integer:
+b <- as.integer(y)
+
+# print values of x and y
+x
+y
+
+# print the class name of a and b
+class(a)
+class(b)

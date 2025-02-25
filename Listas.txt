@@ -1,0 +1,194 @@
+LISTAS
+Una lista en R puede contener muchos tipos de datos diferentes. 
+Una lista es una colección de datos ordenados y modificables.
+
+Para crear una lista, utilice la list()función:
+Ejemplo
+# List of strings
+thislist <- list("apple", "banana", "cherry")
+
+# Print the list
+thislist
+[[1]]
+[1] "apple"
+
+[[2]]
+[1] "banana"
+
+[[3]]
+[1] "cherry"
+
+Listas de acceso
+Puede acceder a los elementos de la lista consultando su número de índice, entre corchetes.
+ El primer elemento tiene el índice 1, el segundo elemento tiene el índice 2, y así sucesivamente:
+
+Ejemplo
+thislist <- list("apple", "banana", "cherry")
+
+thislist[1]
+
+
+
+Cambiar el valor del artículo
+Para cambiar el valor de un elemento específico, consulte el número de índice:
+
+Ejemplo
+thislist <- list("apple", "banana", "cherry")
+thislist[1] <- "blackcurrant"
+
+# Print the updated list
+thislist
+
+Longitud de la lista
+Para saber cuántos elementos tiene una lista, utilice la length()función:
+
+Ejemplo
+thislist <- list("apple", "banana", "cherry")
+
+length(thislist)
+
+
+Comprobar si el artículo existe
+Para saber si un elemento específico está presente en una lista, utilice el %in%operador:
+
+Ejemplo
+Comprueba si "manzana" está presente en la lista:
+
+thislist <- list("apple", "banana", "cherry")
+
+"apple" %in% thislist
+[1] TRUE
+
+
+Agregar elementos de lista
+Para agregar un elemento al final de la lista, utilice la append()función:
+
+Ejemplo
+Añade "naranja" a la lista:
+
+thislist <- list("apple", "banana", "cherry")
+
+append(thislist, "orange")
+
+[[1]]
+[1] "apple"
+
+[[2]]
+[1] "banana"
+
+[[3]]
+[1] "cherry"
+
+[[4]]
+[1] "orange"
+
+Para agregar un elemento a la derecha de un índice especificado, 
+agregue " " en la función:after=index numberappend()
+
+Ejemplo
+Añade "naranja" a la lista después de "banana" (índice 2):
+
+thislist <- list("apple", "banana", "cherry")
+
+append(thislist, "orange", after = 2)
+
+[[1]]
+[1] "apple"
+
+[[2]]
+[1] "banana"
+
+[[3]]
+[1] "orange"
+
+[[4]]
+[1] "cherry"
+
+Eliminar elementos de la lista
+También puedes eliminar elementos de la lista. 
+El siguiente ejemplo crea una lista nueva y actualizada sin un elemento "manzana":
+
+Ejemplo
+Eliminar "manzana" de la lista:
+
+thislist <- list("apple", "banana", "cherry")
+
+newlist <- thislist[-1]
+
+# Print the new list
+newlist
+
+[[1]]
+[1] "banana"
+
+[[2]]
+[1] "cherry"
+
+
+Rango de índices
+Puede especificar un rango de índices especificando dónde comenzar y dónde finalizar el rango, 
+utilizando el : operador:
+
+Ejemplo
+Devuelve el segundo, tercero, cuarto y quinto elemento:
+
+thislist <- list("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+
+(thislist)[2:5]
+
+[[1]]
+[1] "banana"
+
+[[2]]
+[1] "cherry"
+
+[[3]]
+[1] "orange"
+
+[[4]]
+[1] "kiwi"
+Nota: La búsqueda comenzará en el índice 2 (incluido) y finalizará en el índice 5 (incluido).
+
+Recuerde que el primer elemento tiene índice 1.
+
+Recorrer una lista en bucle
+Puedes recorrer los elementos de la lista mediante un forbucle:
+
+Ejemplo
+Imprima todos los elementos de la lista, uno por uno:
+
+thislist <- list("apple", "banana", "cherry")
+
+for (x in thislist) {
+  print(x)
+}
+
+Unir dos listas
+Hay varias formas de unir o concatenar dos o más listas en R.
+
+La forma más común es utilizar la c()función, que combina dos elementos juntos:
+
+Ejemplo
+list1 <- list("a", "b", "c")
+list2 <- list(1,2,3)
+list3 <- c(list1,list2)
+
+list3
+
+[[1]]
+[1] "a"
+
+[[2]]
+[1] "b"
+
+[[3]]
+[1] "c"
+
+[[4]]
+[1] 1
+
+[[5]]
+[1] 2
+
+[[6]]
+[1] 3

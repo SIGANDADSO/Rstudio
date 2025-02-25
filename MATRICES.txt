@@ -1,0 +1,202 @@
+Matrices
+Una matriz es un conjunto de datos bidimensional con columnas y filas.
+
+Una columna es una representación vertical de datos, mientras que una fila es una representación horizontal de datos.
+
+Se puede crear una matriz con la matrix()función. Especifique los parámetros nrowy ncolpara obtener la cantidad de filas y columnas:
+Ejemplo
+# Create a matrix
+thismatrix <- matrix(c(1,2,3,4,5,6), nrow = 3, ncol = 2)
+
+# Print the matrix
+thismatrix
+   [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+Nota: Recuerde que la c()función se utiliza para concatenar elementos entre sí.
+
+También puedes crear una matriz con cadenas:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+thismatrix
+  [,1]     [,2]    
+[1,] "apple"  "cherry"
+[2,] "banana" "orange"
+
+
+Elementos de la matriz de acceso
+Puede acceder a los elementos mediante [ ] corchetes. El primer número "1" en el corchete especifica la posición de la fila, mientras que el segundo número "2" especifica la posición de la columna:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+thismatrix[1, 2]
+[1] "cherry"
+
+
+Se puede acceder a toda la fila si especifica una coma después del número entre paréntesis:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+thismatrix[2,]
+[1] "banana" "orange"
+
+Se puede acceder a toda la columna si especifica una coma antes del número entre corchetes:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+thismatrix[,2]
+[1] "cherry" "orange"
+
+
+Acceda a más de una fila
+Se puede acceder a más de una fila si utiliza la c()función:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", 
+"cherry", "orange","grape", "pineapple", "pear", "melon", "fig"), nrow = 3, ncol = 3)
+
+thismatrix[c(1,2),]
+
+   [,1]     [,2]     [,3]   
+[1,] "apple"  "orange" "pear" 
+[2,] "banana" "grape"  "melon"
+
+
+Acceder a más de una columna
+Se puede acceder a más de una columna si utiliza la c()función:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange","grape",
+ "pineapple", "pear", "melon", "fig"), nrow = 3, ncol = 3)
+
+thismatrix[, c(1,2)]
+   [,1]     [,2]       
+[1,] "apple"  "orange"   
+[2,] "banana" "grape"    
+[3,] "cherry" "pineapple"
+
+Agregar filas y columnas
+Utilice la cbind()función para agregar columnas adicionales en una matriz:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange","grape",
+ "pineapple", "pear", "melon", "fig"), nrow = 3, ncol = 3)
+
+newmatrix <- cbind(thismatrix, c("strawberry", "blueberry", "raspberry"))
+
+# Print the new matrix
+newmatrix
+   [,1]     [,2]        [,3]    [,4]        
+[1,] "apple"  "orange"    "pear"  "strawberry"
+[2,] "banana" "grape"     "melon" "blueberry" 
+[3,] "cherry" "pineapple" "fig"   "raspberry" 
+
+Nota: Las celdas de la nueva columna deben tener la misma longitud que la matriz existente.
+
+Utilice la rbind()función para agregar filas adicionales en una matriz:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange","grape",
+ "pineapple", "pear", "melon", "fig"), nrow = 3, ncol = 3)
+
+newmatrix <- rbind(thismatrix, c("strawberry", "blueberry", "raspberry"))
+
+# Print the new matrix
+newmatrix
+    [,1]         [,2]        [,3]       
+[1,] "apple"      "orange"    "pear"     
+[2,] "banana"     "grape"     "melon"    
+[3,] "cherry"     "pineapple" "fig"      
+[4,] "strawberry" "blueberry" "raspberry"
+
+Nota: Las celdas de la nueva fila deben tener la misma longitud que la matriz existente.
+
+Eliminar filas y columnas
+Utilice la c()función para eliminar filas y columnas en una matriz:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange", "mango", "pineapple"), nrow = 3, ncol =2)
+
+#Remove the first row and the first column
+thismatrix <- thismatrix[-c(1), -c(1)]
+
+thismatrix
+[1] "mango"     "pineapple"
+
+Comprobar si existe un artículo
+Para saber si un elemento específico está presente en una matriz, utilice el %in%operador:
+
+Ejemplo
+Comprueba si "manzana" está presente en la matriz:
+
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+"apple" %in% thismatrix
+
+Número de filas y columnas
+Utilice la dim()función para encontrar el número de filas y columnas en una matriz:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+dim(thismatrix)
+Longitud de la matriz
+Utilice la length()función para encontrar la dimensión de una matriz:
+
+Ejemplo
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+length(thismatrix)
+El total de celdas en la matriz es el número de filas multiplicado por el número de columnas.
+
+En el ejemplo anterior: Dimensión = 2*2 = 4 .
+
+Recorrer una matriz en bucle
+Puedes recorrer una matriz mediante un forbucle. El bucle comenzará en la primera fila y se moverá hacia la derecha:
+
+Ejemplo
+Recorrer los elementos de la matriz e imprimirlos:
+
+thismatrix <- matrix(c("apple", "banana", "cherry", "orange"), nrow = 2, ncol = 2)
+
+for (rows in 1:nrow(thismatrix)) {
+  for (columns in 1:ncol(thismatrix)) {
+    print(thismatrix[rows, columns])
+  }
+}
+[1] "apple"
+[1] "cherry"
+[1] "banana"
+[1] "orange"
+
+
+Combinar dos matrices
+Nuevamente, puedes usar la función rbind()o cbind()para combinar dos o más matrices juntas:
+
+Ejemplo
+# Combine matrices
+Matrix1 <- matrix(c("apple", "banana", "cherry", "grape"), nrow = 2, ncol = 2)
+Matrix2 <- matrix(c("orange", "mango", "pineapple", "watermelon"), nrow = 2, ncol = 2)
+
+# Adding it as a rows
+Matrix_Combined <- rbind(Matrix1, Matrix2)
+Matrix_Combined
+
+# Adding it as a columns
+Matrix_Combined <- cbind(Matrix1, Matrix2)
+Matrix_Combined
+
+   [,1]     [,2]        
+[1,] "apple"  "cherry"    
+[2,] "banana" "grape"     
+[3,] "orange" "pineapple" 
+[4,] "mango"  "watermelon"
+     [,1]     [,2]     [,3]     [,4]        
+[1,] "apple"  "cherry" "orange" "pineapple" 
+[2,] "banana" "grape"  "mango"  "watermelon"

@@ -1,0 +1,211 @@
+Conjunto de datos
+Un conjunto de datos es una colección de datos, a menudo presentados en una tabla.
+
+Hay un conjunto de datos integrado popular en R llamado " mtcars " (Motor Trend Car Road Tests), que se recuperó de la revista Motor Trend estadounidense de 1974.
+
+En los ejemplos siguientes (y en los próximos capítulos), utilizaremos el mtcars conjunto de datos para fines estadísticos:
+
+Ejemplo
+# Print the mtcars data set
+mtcars
+Información sobre el conjunto de datos
+Puede utilizar el signo de interrogación ( ?) para obtener información sobre el mtcarsconjunto de datos:
+
+Ejemplo
+# Use the question mark to get information about the data set
+
+?mtcars
+
+Obtener información
+Utilice la dim()función para encontrar las dimensiones del conjunto de datos y la names()función para ver los nombres de las variables:
+
+Ejemplo
+Data_Cars <- mtcars # create a variable of the mtcars data set for better organization
+
+# Use dim() to find the dimension of the data set
+dim(Data_Cars)
+
+# Use names() to find the names of the variables from the data set
+names(Data_Cars)
+
+Utilice la rownames()función para obtener el nombre de cada fila en la primera columna, que es el nombre de cada automóvil:
+
+Ejemplo
+Data_Cars <- mtcars
+
+rownames(Data_Cars)
+
+Imprimir valores de variables
+Si desea imprimir todos los valores que pertenecen a una variable, acceda al marco de datos utilizando el $signo y el nombre de la variable (por ejemplo cyl(cilindros)):
+
+Ejemplo
+Data_Cars <- mtcars
+
+Data_Cars$cyl
+
+Ordenar valores de variables
+Para ordenar los valores, utilice la sort()función:
+
+Ejemplo
+Data_Cars <- mtcars
+
+sort(Data_Cars$cyl)
+
+Analizando los datos
+Ahora que tenemos algo de información sobre el conjunto de datos, podemos comenzar a analizarlo con algunos números estadísticos.
+
+Por ejemplo, podemos utilizar la summary()función para obtener un resumen estadístico de los datos:
+
+Ejemplo
+Data_Cars <- mtcars
+
+summary(Data_Cars)
+
+
+
+Máximo Mínimo
+En el capítulo anterior, presentamos el conjunto de datos mtcars . 
+Seguiremos utilizando este conjunto de datos en las próximas páginas.
+
+Aprendiste en el capítulo de Matemáticas de R que R tiene varias funciones 
+matemáticas integradas. Por ejemplo, las funciones min()y max()se pueden 
+usar para encontrar el valor más bajo o más alto de un conjunto:
+Ejemplo
+Encuentra el valor más grande y más pequeño de la variable hp(caballos de fuerza).
+
+Data_Cars <- mtcars
+
+max(Data_Cars$hp)
+min(Data_Cars$hp)
+Resultado:
+
+[1] 335
+[1] 52
+
+
+Observando la tabla, parece que el mayor valor de HP pertenece a un Maserati Bora, y el más bajo pertenece a un Honda Civic.
+
+Sin embargo, es mucho más fácil (y seguro) dejar que R lo descubra por nosotros.
+
+Por ejemplo, podemos usar las funciones which.max()y which.min()para encontrar la posición del índice del valor máximo y mínimo en la tabla:
+
+Ejemplo
+Data_Cars <- mtcars
+
+which.max(Data_Cars$hp)
+which.min(Data_Cars$hp)
+Resultado:
+
+[1] 31
+[1] 19
+
+O mejor aún, combine which.max()y which.min()con la rownames()función para obtener el nombre del automóvil con mayor y menor potencia:
+
+Ejemplo
+Data_Cars <- mtcars
+
+rownames(Data_Cars)[which.max(Data_Cars$hp)]
+rownames(Data_Cars)[which.min(Data_Cars$hp)]
+Resultado:
+
+[1] "Maserati Bora"
+[1] "Honda Civic"
+
+
+
+
+Valores atípicos
+Max y min también se pueden utilizar para detectar valores atípicos . Un valor atípico es un punto de datos que difiere del resto de las observaciones.
+
+Ejemplo de puntos de datos que podrían haber sido valores atípicos en el conjunto de datos mtcars :
+
+Si el máximo de marchas hacia adelante de un automóvil fuera 11
+Si el mínimo de caballos de fuerza de un automóvil fuera 0
+Si el peso máximo de un automóvil fuera de 50 000 libras
+
+
+Media, mediana y moda
+En estadística, a menudo hay tres valores que nos interesan:
+
+Media - El valor promedio
+Mediana - El valor medio
+Moda - El valor más común
+
+Afortunadamente para nosotros, la mean()función en R puede hacerlo por usted:
+
+Ejemplo
+Encuentra el peso promedio ( wt) de un automóvil:
+
+Data_Cars <- mtcars
+
+mean(Data_Cars$wt)
+Resultado:
+
+[1] 3.21725
+
+Mediana
+El valor mediano es el valor que aparece en el medio, después de haber ordenado todos los valores.
+
+Si observamos los valores de la wtvariable (del mtcarsconjunto de datos), veremos que hay dos números en el medio:
+
+
+Nota: Si hay dos números en el medio, debes dividir la suma de esos números por dos, para encontrar la mediana.
+
+Afortunadamente, R tiene una función que hace todo eso por ti: simplemente usa la median() función para encontrar el valor medio:
+
+Ejemplo
+Encuentra el valor del punto medio del peso ( wt):
+
+Data_Cars <- mtcars
+
+median(Data_Cars$wt)
+Resultado:
+
+[1] 3.325
+
+
+Modo
+El valor de moda es el valor que aparece el mayor número de veces.
+
+R no tiene una función para calcular la moda. Sin embargo, podemos crear nuestra propia función para encontrarla.
+
+Si observamos los valores de la wtvariable (del mtcarsconjunto de datos), veremos que a menudo se muestran los números 3.440 :
+
+
+
+En lugar de contarlo nosotros mismos, podemos usar el siguiente código para encontrar la moda:
+
+Ejemplo
+Data_Cars <- mtcars
+
+names(sort(-table(Data_Cars$wt)))[1]
+Resultado:
+
+[1] "3.44"
+
+
+Percentiles
+Los percentiles se utilizan en estadística para brindar un número que describe el valor que un porcentaje determinado de los valores es menor que el valor.
+
+Si observamos los valores de la wt variable (peso) del mtcarsconjunto de datos:
+
+¿Cuál es el percentil 75 del peso de los automóviles? La respuesta es 3,61 o 3610 libras, lo que significa que el 75 % de los automóviles pesan 3610 libras o menos:
+
+Ejemplo
+Data_Cars <- mtcars
+
+# c() specifies which percentile you want
+quantile(Data_Cars$wt, c(0.75))
+Resultado:
+
+75%
+3.61
+
+Cuartiles
+Los cuartiles son datos divididos en cuatro partes, cuando se ordenan en orden ascendente:
+
+El valor del primer cuartil corta el primer 25% de los datos.
+El valor del segundo cuartil corta el primer 50% de los datos.
+El valor del tercer cuartil corta el primer 75% de los datos.
+El valor del cuarto cuartil corta el 100% de los datos.
+Utilice la quantile()función para obtener los cuartiles.

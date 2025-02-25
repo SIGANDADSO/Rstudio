@@ -1,0 +1,29 @@
+
+RSTUDIO
+
+Nombres de variables
+Una variable puede tener un nombre corto (como x e y) o un nombre más descriptivo 
+(edad, nombre del vehículo, volumen total). Las reglas para las variables R son:
+El nombre de una variable debe comenzar con una letra y puede ser una combinación de letras, dígitos, punto(.)
+y guión bajo(_). Si comienza con punto(.), no puede ir seguido de un dígito.
+Un nombre de variable no puede comenzar con un número o un guión bajo (_)
+Los nombres de las variables distinguen entre mayúsculas y minúsculas (edad, Edad y EDAD son tres variables diferentes)
+Las palabras reservadas no se pueden utilizar como variables (VERDADERO, FALSO, NULO, si...)
+
+EJEMPLO:
+# Legal variable names:
+myvar <- "John"
+my_var <- "John"
+myVar <- "John"
+MYVAR <- "John"
+myvar2 <- "John"
+.myvar <- "John"
+
+# Illegal variable names:
+2myvar <- "John"
+my-var <- "John"
+my var <- "John"
+_my_var <- "John"
+my_v@ar <- "John"
+TRUE <- "John"
+

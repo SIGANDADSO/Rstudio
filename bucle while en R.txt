@@ -1,0 +1,69 @@
+Bucles
+Los bucles pueden ejecutar un bloque de código siempre que se alcance una condición especificada.
+
+Los bucles son útiles porque ahorran tiempo, reducen errores y hacen que el código sea más legible.
+
+R tiene dos comandos de bucle:
+
+while bucles
+for bucles
+Bucles While de R
+Con el whilebucle podemos ejecutar un conjunto de sentencias siempre que una condición sea VERDADERA:
+
+Ejemplo
+Imprimir isiempre que isea menor a 6:
+
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+}
+
+
+Romper
+Con la break declaración, podemos detener el bucle incluso si la condición while es VERDADERA:
+
+Ejemplo
+Salir del bucle si ies igual a 4.
+
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+  if (i == 4) {
+    break
+  }
+}
+
+
+Próximo
+Con la nextdeclaración, podemos omitir una iteración sin terminar el bucle:
+
+Ejemplo
+Omitir el valor de 3:
+
+i <- 0
+while (i < 6) {
+  i <- i + 1
+  if (i == 3) {
+    next
+  }
+  print(i)
+}
+
+¡Yahtzee!
+If...Else combinado con un bucle While
+Para demostrar un ejemplo práctico, digamos que jugamos una partida de Yahtzee.
+
+Ejemplo
+Imprime "¡Yahtzee!" Si el número del dado es 6:
+
+dice <- 1
+while (dice <= 6) {
+  if (dice < 6) {
+    print("No Yahtzee")
+  } else {
+    print("Yahtzee!")
+  }
+  dice <- dice + 1
+}

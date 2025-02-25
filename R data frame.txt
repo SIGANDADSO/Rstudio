@@ -1,0 +1,220 @@
+R data frame
+Los marcos de datos(data frame) son datos que se muestran en formato de tabla.
+
+Los marcos de datos pueden tener distintos tipos de datos en su interior. 
+Mientras que la primera columna puede ser character, la segunda y la tercera pueden ser numerico logical. 
+Sin embargo, cada columna debe tener el mismo tipo de datos.
+
+Utilice la data.frame()función para crear un marco de datos:
+# Create a data frame
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Print the data frame
+Data_Frame
+ Training Pulse Duration
+1 Strength   100       60
+2  Stamina   150       30
+3    Other   120       45
+
+Resumir los datos
+Utilice la summary()función para resumir los datos de un marco de datos:
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame
+
+summary(Data_Frame)
+
+ Training Pulse Duration
+1 Strength   100       60
+2  Stamina   150       30
+3    Other   120       45
+     Training     Pulse          Duration   
+ Other   :1   Min.   :100.0   Min.   :30.0  
+ Stamina :1   1st Qu.:110.0   1st Qu.:37.5  
+ Strength:1   Median :120.0   Median :45.0  
+              Mean   :123.3   Mean   :45.0  
+              3rd Qu.:135.0   3rd Qu.:52.5  
+              Max.   :150.0   Max.   :60.0
+
+Acceder a elementos
+Podemos utilizar corchetes simples [ ], corchetes dobles [[ ]]o $ para acceder a las columnas de un marco de datos:
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame[1]
+
+Data_Frame[["Training"]]
+
+Data_Frame$Training
+
+
+Agregar filas
+Utilice la rbind()función para agregar nuevas filas en un marco de datos:
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Add a new row
+New_row_DF <- rbind(Data_Frame, c("Strength", 110, 110))
+
+# Print the new row
+New_row_DF
+
+ Training Pulse Duration
+1 Strength   100       60
+2  Stamina   150       30
+3    Other   120       45
+4 Strength   110      110
+
+Agregar columnas
+Utilice la cbind()función para agregar nuevas columnas en un marco de datos:
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Add a new column
+New_col_DF <- cbind(Data_Frame, Steps = c(1000, 6000, 2000))
+
+# Print the new column
+New_col_DF
+
+ Training Pulse Duration Steps
+1 Strength   100       60  1000
+2  Stamina   150       30  6000
+3    Other   120       45  2000
+
+Eliminar filas y columnas
+Utilice la c()función para eliminar filas y columnas en un marco de datos:
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+# Remove the first row and column
+Data_Frame_New <- Data_Frame[-c(1), -c(1)]
+
+# Print the new data frame
+Data_Frame_New
+Training Pulse Duration
+1 Strength   100       60
+2  Stamina   150       30
+3    Other   120       45
+Rta:
+  Pulse Duration
+2   150       30
+3   120       45
+
+Cantidad de filas y columnas
+Utilice la dim()función para encontrar la cantidad de filas y columnas en un marco de datos:
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+dim(Data_Frame)
+
+También puedes utilizar la ncol()función para encontrar el número de columnas y nrow()para encontrar el número de filas:
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+ncol(Data_Frame)
+nrow(Data_Frame)
+
+3 
+3
+
+Longitud del marco de datos
+Utilice la length()función para encontrar el número de columnas en un marco de datos (similar a ncol()):
+
+Ejemplo
+Data_Frame <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+length(Data_Frame)
+
+Combinación de marcos de datos
+Utilice la rbind()función para combinar dos o más marcos de datos en R verticalmente:
+
+Ejemplo
+Data_Frame1 <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame2 <- data.frame (
+  Training = c("Stamina", "Stamina", "Strength"),
+  Pulse = c(140, 150, 160),
+  Duration = c(30, 30, 20)
+)
+
+New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)
+New_Data_Frame
+
+ Training Pulse Duration
+1 Strength   100       60
+2  Stamina   150       30
+3    Other   120       45
+4  Stamina   140       30
+5  Stamina   150       30
+6 Strength   160       20
+
+
+Y use la cbind()función para combinar dos o más marcos de datos en R horizontalmente:
+
+Ejemplo
+Data_Frame3 <- data.frame (
+  Training = c("Strength", "Stamina", "Other"),
+  Pulse = c(100, 150, 120),
+  Duration = c(60, 30, 45)
+)
+
+Data_Frame4 <- data.frame (
+  Steps = c(3000, 6000, 2000),
+  Calories = c(300, 400, 300)
+)
+
+New_Data_Frame1 <- cbind(Data_Frame3, Data_Frame4)
+New_Data_Frame1
+
+ Training Pulse Duration Steps Calories
+1 Strength   100       60  3000      300
+2  Stamina   150       30  6000      400
+3    Other   120       45  2000      300
